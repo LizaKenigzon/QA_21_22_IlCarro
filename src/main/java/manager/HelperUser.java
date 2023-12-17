@@ -7,10 +7,10 @@ public class HelperUser extends HelperBase{
     public HelperUser(WebDriver wd) {
         super(wd);
     }
-    public void openLoginRegistrationForm(){
+    public void openLoginForm(){
         click(By.cssSelector("a[ng-reflect-router-link='login']"));
     }
-    public void fillLoginRegistrationForm(String email, String password){
+    public void fillLoginForm(String email, String password){
         type(By.xpath("//input[@id='email']"),email);
         type(By.xpath("//input[@id='password']"),password);
     }
