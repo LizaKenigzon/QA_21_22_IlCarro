@@ -1,5 +1,6 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +16,12 @@ public class HelperUser extends HelperBase {
     public void fillLoginForm(String email, String password) {
         type(By.xpath("//input[@id='email']"), email);
         type(By.xpath("//input[@id='password']"), password);
+    }
+
+    //overloading
+    public void fillLoginForm(User user) {
+        type(By.xpath("//input[@id='email']"), user.getEmail());
+        type(By.xpath("//input[@id='password']"), user.getPassword());
     }
 
     public void submitLogin() {
@@ -38,4 +45,9 @@ public class HelperUser extends HelperBase {
         return
                 isElementPresent(By.xpath("//button[@class='positive-button ng-star-inserted']"));
     }
+
+    public String getErrorText() {
+        return wd.findElement(By.cssSelector("div.error")).getText();
+    }
+
 }

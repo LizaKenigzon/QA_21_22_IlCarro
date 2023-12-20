@@ -10,36 +10,47 @@ public class HelperBase {
     public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
+
     WebDriver wd;
 
-    public void type(By locator, String text){
+    public void type(By locator, String text) {
         WebElement element = wd.findElement(locator);
         element.click();
         element.clear();
-        if(text!=null){
+        if (text != null) {
             element.sendKeys(text);
         }
     }
 
-    public void click(By locator){
+    public void click(By locator) {
         WebElement element = wd.findElement(locator);
         element.click();
     }
 
-    public boolean isElementPresent(By locator){
+    public boolean isElementPresent(By locator) {
         List<WebElement> list = wd.findElements(locator);
-        return list.size()>0;
+        return list.size() > 0;
     }
+
     public String getMessage() {
         //pause(8000);
         return wd.findElement(By.cssSelector(".dialog-container>h2")).
                 getText();
     }
-    public void pause(int time){
-        try{
+
+    public void pause(int time) {
+        try {
             Thread.sleep(time);
-        } catch(InterruptedException e){
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean IsYallaButtonNotActive() {
+        boolean res = isElementPresent(By.cssSelector("button[disabled]"));
+        WebElement element = wd.findElement(By.cssSelector("button[type='submit']"));
+        boolean result = element.isEnabled();
+        return res && !result;
+    }
+
 }
