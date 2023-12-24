@@ -23,7 +23,7 @@ public class LoginTests extends TestBase{
         //user.setPassword("Aa12345$");
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm(user);
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
         //Assert.assertTrue(app.getHelperUser().isLogged());
         Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
 
@@ -32,7 +32,7 @@ public class LoginTests extends TestBase{
     public void loginSuccess(){
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("elizaveta.murashkina@bk.ru", "Aa12345$");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
 
         //Assert.assertTrue(app.getHelperUser().isLogged());
         Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
@@ -43,7 +43,7 @@ public class LoginTests extends TestBase{
     public void loginSuccessModel(){
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("elizaveta.murashkina@bk.ru", "Aa12345$");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
 
         Assert.assertTrue(app.getHelperUser().isLogged());
         //Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
@@ -53,7 +53,7 @@ public class LoginTests extends TestBase{
     public void loginWrongEmail() {
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("elizaveta.murashkinabk.ru", "Aa12345$");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
         Assert.assertEquals(app.getHelperUser().getErrorText(),"It'snot look like email");
         Assert.assertTrue(app.getHelperUser().IsYallaButtonNotActive());
     }
@@ -61,21 +61,21 @@ public class LoginTests extends TestBase{
     public void loginWrongPassword() {
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("elizaveta.murashkina@bk.ru", "Aa12");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
         Assert.assertEquals(app.getHelperUser().getMessage(),"\"Login or Password incorrect\"");
     }
     @Test
     public void loginUnregisteredUser() {
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("luck123@bk.ru", "Aa12345$");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
         Assert.assertEquals(app.getHelperUser().getMessage(),"\"Login or Password incorrect\"");
     }
 
     @AfterMethod
     public void postConditions(){
         if(app.getHelperUser().isLoggedWithOkWindow()){
-            app.getHelperUser().clickOkAfterLoginSuccess();
+            app.getHelperUser().clickOkAfterSuccess();
         }
     }
 }
