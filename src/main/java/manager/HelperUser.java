@@ -1,8 +1,8 @@
 package manager;
 
 import models.User;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 public class HelperUser extends HelperBase {
     public HelperUser(WebDriver wd) {
@@ -64,6 +64,18 @@ public class HelperUser extends HelperBase {
 
     public void checkPolicy() {
         click(By.xpath("//label[contains(text(),'I agree to the')]"));
+
+        //option 2
+        //JavascriptExecutor js = (JavascriptExecutor) wd;
+        //js.executeScript("document.querySelector('#terms-of-use').click();");
+
+        //option 3
+        //WebElement label = wd.findElement(By.cssSelector("label[for='terms-of-use']"));
+        //Rectangle rect = label.getRect();
+        //int w = rect.getWidth();
+        //int xOffSet = w/2;
+        //Actions actions = new Actions(wd);
+        //actions.moveToElement(label,xOffSet,0);
     }
 
     public String getRegistrationFailedText() {
@@ -85,5 +97,12 @@ public class HelperUser extends HelperBase {
 
     public void refresh() {
         wd.navigate().refresh();
+    }
+
+    public void login(User user){
+        openLoginForm();
+        fillLoginForm(user);
+        submit();
+        clickOkAfterSuccess();
     }
 }

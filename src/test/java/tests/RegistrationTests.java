@@ -25,11 +25,12 @@ public class RegistrationTests extends TestBase{
                 .setFirstName("Liza")
                 .setLastName("Snow")
                 .setEmail("snow"+i+"@mail.ru")
-                .setPassword("Snow12345!");
+                 .setPassword("Snow12345!");
                 app.getHelperUser().openRegistrationForm();
                 app.getHelperUser().fillRegistrationForm(user);
                 app.getHelperUser().checkPolicy();
                 app.getHelperUser().submit();
+                Assert.assertEquals(app.getHelperUser().getMessage(),"You are logged in success");
         app.getHelperUser().clickOkAfterSuccess();
     }
 
