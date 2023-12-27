@@ -63,6 +63,27 @@ public class HelperUser extends HelperBase {
     }
 
     public void checkPolicy() {
-        click(By.cssSelector("label[for='terms-of-use']"));
+        click(By.xpath("//label[contains(text(),'I agree to the')]"));
+    }
+
+    public String getRegistrationFailedText() {
+    return wd.findElement(By.cssSelector("h2.message")).getText();
+    }
+
+    public void submitUserExist() {
+        click(By.xpath("//button[@type='button']"));
+    }
+
+    public boolean errorTextWrongPasswordEmailEmptyFields() {
+        return
+                isElementPresent(By.cssSelector("div.error"));
+    }
+
+    public void clickOnFreeSpace() {
+        click(By.cssSelector("div.login-registration-container"));
+    }
+
+    public void refresh() {
+        wd.navigate().refresh();
     }
 }
