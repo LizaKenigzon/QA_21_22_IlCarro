@@ -17,8 +17,9 @@ public class AddNewCarTests extends TestBase{
 
     }
     @Test
-    public void addNewCarSuccess(){
-        int i = new Random().nextInt(1000)+1000;
+    public void addNewContactSuccess(){
+        Random random = new Random();
+        int i = random.nextInt(1000);
        Car car = Car.builder()
                .location("Tel Aviv, Israel")
                .manufacture("Mazda")
@@ -33,6 +34,6 @@ public class AddNewCarTests extends TestBase{
                .build();
        app.getHelperCar().openCarForm();
        app.getHelperCar().fillCarForm(car);
-       //app.getHelperCar().submitCarForm();
+       app.getHelperCar().submitCarForm();
     }
 }

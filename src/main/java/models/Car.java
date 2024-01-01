@@ -1,13 +1,18 @@
 package models;
 
-import lombok.*;
 
-@Setter
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Getter
-@ToString
+@Setter
 @Builder
+@ToString
 
 public class Car {
+
     private String location;
     private String manufacture;
     private String model;
