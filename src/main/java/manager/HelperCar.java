@@ -20,13 +20,13 @@ public class HelperCar extends HelperBase{
         typeLocation(car.getLocation());
         type(By.id("make"),car.getManufacture());
         type(By.cssSelector("#model"),car.getModel());
-        type(By.cssSelector("year"),car.getYear());
-        select(By.id("fuel"), car.getFuel());
+        type(By.cssSelector("#year"),car.getYear());
+        select(By.id("fuel"),car.getFuel());
         type(By.id("seats"),String.valueOf(car.getSeats()));
-        type(By.cssSelector("class"),car.getCarClass());
-        type(By.cssSelector("serialNumber"),car.getCarRegNumber());
-        type(By.cssSelector("price"),car.getPrice()+"");
-        type(By.cssSelector("about"),car.getAbout());
+        type(By.cssSelector("#class"),car.getCarClass());
+        type(By.cssSelector("#serialNumber"),car.getCarRegNumber());
+        type(By.cssSelector("#price"),car.getPrice()+"");
+        type(By.cssSelector("#about"),car.getAbout());
     }
 
     private void select(By locator, String options){
@@ -42,8 +42,15 @@ public class HelperCar extends HelperBase{
         click(By.cssSelector("div.pac-item"));
     }
 
-
     public void submitCarForm() {
         click(By.xpath("//button[@type='submit']"));
+    }
+
+    public void returnToHome(){
+        click(By.xpath("//button[text() = 'Search cars']"));
+    }
+
+    public void attachPhoto(String link) {
+        wd.findElement(By.cssSelector("#photos")).sendKeys(link);
     }
 }
