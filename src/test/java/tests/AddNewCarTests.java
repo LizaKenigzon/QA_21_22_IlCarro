@@ -15,11 +15,13 @@ public class AddNewCarTests extends TestBase{
     public void preConditions(){
         if(!app.getHelperUser().isLogged()){
             app.getHelperUser().login(new User().setEmail("elizaveta.murashkina@bk.ru").setPassword("Aa12345$"));
+            logger.info("Before method login with data: email: 'elizaveta.murashkina@bk.ru' & password: 'Aa12345$'");
         }
 
     }
     @Test
     public void addNewContactSuccess(){
+        logger.info("Test data ---> Tel Aviv, Israel,Mazda,M3,2022,Petrol,4,C,678-900-+i,50,Very nice car");
         Random random = new Random();
         int i = random.nextInt(10000)+1000;
        Car car = Car.builder()
@@ -41,10 +43,12 @@ public class AddNewCarTests extends TestBase{
        Assert.assertTrue(app.getHelperUser().getMessage().contains("added successful"));
        Assert.assertEquals(app.getHelperUser().getMessage(),
                 car.getManufacture()+" "+car.getModel()+(" added successful"));
+        logger.info("Assert check is Alert Present contains ' added successful'");
     }
 
     @Test
     public void addNewContactSuccessRequiredFields(){
+        logger.info("Test data ---> Tel Aviv, Israel,Mazda,M3,2022,Petrol,4,C,678-900-+i,50");
         Random random = new Random();
         int i = random.nextInt(10000)+1000;
         Car car = Car.builder()
@@ -64,6 +68,7 @@ public class AddNewCarTests extends TestBase{
         Assert.assertTrue(app.getHelperUser().getMessage().contains("added successful"));
         Assert.assertEquals(app.getHelperUser().getMessage(),
                 car.getManufacture()+" "+car.getModel()+(" added successful"));
+        logger.info("Assert check is Alert Present contains ' added successful'");
     }
 
     @AfterMethod

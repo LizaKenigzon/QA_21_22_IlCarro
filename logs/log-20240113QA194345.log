@@ -1,0 +1,24 @@
+19:44:00.376 INFO  manager.ApplicationManager - All tests run in Chrome Browser
+19:44:07.085 INFO  manager.ApplicationManager - The link --> https://ilcarro.web.app/search
+19:44:07.336 INFO  tests.TestBase - Name of method  loginSuccess
+19:44:17.543 INFO  tests.TestBase - Test data ---> email:'elizaveta.murashkina@bk.ru' & password:'Aa12345$'
+19:44:20.617 INFO  tests.TestBase - Assert check is Message Present 'Logged in success'
+19:44:20.856 INFO  tests.TestBase - Name of method  loginSuccess1
+19:44:21.286 INFO  tests.TestBase - Before method finish logout
+19:44:21.287 INFO  tests.TestBase - Test data ---> email:'elizaveta.murashkina@bk.ru' & password:'Aa12345$'
+19:44:23.204 INFO  tests.TestBase - Assert check is Message Present 'Logged in success'
+19:44:23.439 INFO  tests.TestBase - Name of method  loginSuccessModel
+19:44:23.862 INFO  tests.TestBase - Before method finish logout
+19:44:23.864 INFO  tests.TestBase - Test data ---> email:'elizaveta.murashkina@bk.ru' & password:'Aa12345$'
+19:44:25.690 INFO  tests.TestBase - Assert check is Element button 'Sign out' present
+19:44:25.946 INFO  tests.TestBase - Name of method  loginUnregisteredUser
+19:44:26.426 INFO  tests.TestBase - Before method finish logout
+19:44:26.429 INFO  tests.TestBase - Test data ---> email:'luck123@bk.ru' & password:'Aa12345$'
+19:44:28.333 INFO  tests.TestBase - Assert check is Error text 'Login or Password incorrect' present
+19:44:28.550 INFO  tests.TestBase - Name of method  loginWrongEmail
+19:44:38.626 INFO  tests.TestBase - Test data ---> email:'elizaveta.murashkinabk.ru' & password:'Aa12345$'
+19:44:40.697 INFO  tests.TestBase - Assert check is Element button 'Yalla' not active
+19:44:40.697 INFO  tests.TestBase - Assert check is Error text 'It'snot look like email' present
+19:44:50.720 INFO  tests.TestBase - Name of method  loginWrongPassword
+19:45:00.810 INFO  tests.TestBase - Test data ---> email:'elizaveta.murashkina@bk.ru' & password:'Aa12'
+19:45:03.296 INFO  tests.TestBase - Assert check is Error text 'Login or Password incorrect' present
