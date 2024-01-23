@@ -48,7 +48,6 @@ public class AddNewCarTests extends TestBase{
 
     @Test
     public void addNewContactSuccessRequiredFields(){
-        logger.info("Test data ---> Tel Aviv, Israel,Mazda,M3,2022,Petrol,4,C,678-900-+i,50");
         Random random = new Random();
         int i = random.nextInt(10000)+1000;
         Car car = Car.builder()
@@ -62,6 +61,7 @@ public class AddNewCarTests extends TestBase{
                 .carRegNumber("678-900-"+i)
                 .price(50)
                 .build();
+        logger.info("Test data ---> "+car.toString());
         app.getHelperCar().openCarForm();
         app.getHelperCar().fillCarForm(car);
         app.getHelperCar().submitCarForm();

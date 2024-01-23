@@ -150,7 +150,7 @@ public class RegistrationTests extends TestBase{
 
     @Test
     public void registrationWithoutPassword(){
-        logger.info("Test data ---> Snow,Mama,email:'snow+i+@mail.ru'");
+        logger.info("Test data ---> Snow,Mama,snow+i+@mail.ru'");
         app.getHelperUser().refresh();
         Random random = new Random();
         int i = random.nextInt(1000);
