@@ -3,6 +3,7 @@ package manager;
 import models.Car;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
@@ -174,5 +175,7 @@ public class HelperCar extends HelperBase{
         String text = wd.findElement(By.cssSelector("div.ng-star-inserted")).getText();
         return text.equals(message);
     }
+
+
 }
 
